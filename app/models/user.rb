@@ -4,11 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # Associations
-
   # Validations
   validates :name, presence: true
 
+  # Methods
   def santa?
     role == 'santa'
   end
