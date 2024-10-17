@@ -1,8 +1,8 @@
 {
-  "name": "polina-courses",
+  "name": "santa_claus_workflow",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/PolinaStamenova/polina-courses.git",
+  "repository": "https://github.com/PolinaStamenova/santa_claus_workflow.git",
   "author": "Polina Stamenova <polina.stamenova@gmail.com>",
   "license": "MIT"
 }
