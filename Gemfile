@@ -78,3 +78,6 @@ group :test do
 end
 
 gem 'devise', '~> 4.9'
+
+# Chatgpt
+gem 'ruby-openai', '~> 7.1'
