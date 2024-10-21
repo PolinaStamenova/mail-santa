@@ -1,0 +1,9 @@
+%h1 Write your letter to Santa
+
+= form_with model: @child_wish, local: true, data: { turbo: false } do |form|
+  .field
+    = form.label :letter
+    = form.text_area :letter
+
+  .actions
+    = form.submit "Send Your Letter to Santa"
