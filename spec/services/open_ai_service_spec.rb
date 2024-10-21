@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../../app/services/open_ai_service' # Ensure the service file is loaded
 
 RSpec.describe OpenAiService, :vcr do
   let(:service) { OpenAiService.new }
