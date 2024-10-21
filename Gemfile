@@ -75,6 +75,10 @@ group :test do
   gem 'webdrivers'
   # Simple one-liner tests for common Rails functionality [https://github.com/thoughtbot/shoulda-matchers]
   gem 'shoulda-matchers', '~> 6.2.0'
+  # VCR records your test suite's HTTP interactions and replays them during future test runs
+  gem 'vcr'
+  # WebMock allows stubbing HTTP requests and setting expectations on HTTP requests
+  gem 'webmock'
 end
 
 gem 'devise', '~> 4.9'
