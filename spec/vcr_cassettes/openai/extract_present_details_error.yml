@@ -1,0 +1,113 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","messages":[{"role":"user","content":"      You are
+        Santa''s assistant. A child wrote a letter asking for a present. Please extract
+        the following details from the letter:\n      1. Present name (e.g., bike,
+        doll, toy car, etc.).\n      2. Present color.\n      3. Present size (small,
+        medium, or large).\n\n      Return the details in the following JSON format:\n      {\n        \"present_name\":
+        \"example_name\",\n        \"present_color\": \"example_color\",\n        \"present_size\":
+        \"example_size\"\n      }\n\n      Here is the letter: \"A want something\"\n"}],"max_tokens":150}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 21 Oct 2024 11:54:25 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Request-ID
+      Openai-Organization:
+      - user-pjhrdrpozimotfjnfzcyucuy
+      Openai-Processing-Ms:
+      - '1019'
+      Openai-Version:
+      - '2020-10-01'
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '10000'
+      X-Ratelimit-Remaining-Requests:
+      - '9999'
+      X-Ratelimit-Remaining-Tokens:
+      - '9723'
+      X-Ratelimit-Reset-Requests:
+      - 8.64s
+      X-Ratelimit-Reset-Tokens:
+      - 1.662s
+      X-Request-Id:
+      - req_5dea7bbedaad1f63d79b3b63565c6ae0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Gm2z.EflE8Ssxv9R4u.qc69uCiGrF3NsOMw5l0duc7I-1729511665-1.0.1.1-rZYtHdPnhWEAV8ahcV8OIBf2pwIjnq1rWMNUU0z_ZN_udu8H2hxy8fsQvE4UbiHeG0.OQdRPPv5jnU1RfZTPJg;
+        path=/; expires=Mon, 21-Oct-24 12:24:25 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=7IDI6Ma9ccmhjTLaKXDThKiyLkyXahs_tf39zuRH8lQ-1729511665876-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d610d805a09d0cb-SOF
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-AKlHMbAEzTfWXWpbKbQqwZXxFrA6c",
+          "object": "chat.completion",
+          "created": 1729511664,
+          "model": "gpt-4-0613",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "The letter does not provide specific details about the present. Please ask the child for more information.",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 126,
+            "completion_tokens": 19,
+            "total_tokens": 145,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "system_fingerprint": null
+        }
+  recorded_at: Mon, 21 Oct 2024 11:54:25 GMT
+recorded_with: VCR 6.3.1

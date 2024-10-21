@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_17_122635) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_21_153248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "child_wishes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "present_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["present_id"], name: "index_child_wishes_on_present_id"
+    t.index ["user_id"], name: "index_child_wishes_on_user_id"
+  end
+
+  create_table "presents", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.integer "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -23,9 +40,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_17_122635) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role", default: "elf"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "child_wishes", "presents"
+  add_foreign_key "child_wishes", "users"
 end

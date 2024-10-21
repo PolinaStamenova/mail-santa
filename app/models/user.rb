@@ -4,11 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # Associations
+  has_many :child_wishes
+  has_many :presents, through: :child_wishes
+
   # Validations
   validates :name, presence: true
-
-  # Methods
-  def santa?
-    role == 'santa'
-  end
 end
