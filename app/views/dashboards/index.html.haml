@@ -1,0 +1,14 @@
+%h1 Hi, #{current_user.name}!
+Welcome to your Dashboard
+
+- if current_user.child_wishes.from_this_year.any?
+  %p You alreaady wrote your letter to Santa for this year.
+- else
+  = link_to new_child_wish_path, class: 'write-santa-link' do
+    %p Write your letter to Santa for #{Date.today.year}
+
+%h2 Your wishes
+
+%ul
+  - current_user.presents.each do |present|
+    %li= "#{present.created_at.year} - #{present.size.capitalize} #{present.color} #{present.name}"
