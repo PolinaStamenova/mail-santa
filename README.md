@@ -1,8 +1,8 @@
-# Mail Santa:
+# Mail Santa
 
 Send Your Christmas Wish to Santa
 
-## Description:
+## Description
 
 Mail Santa is a fun and interactive application where children can write letters to Santa Claus, view their wish history, and track the status of their wishes. The app allows children to create an account, submit their wishes, and revisit their past letters and responses from Santa.
 
@@ -15,11 +15,10 @@ Mail Santa is a fun and interactive application where children can write letters
 - AI integration: OpenAI API
 - Testing: RSpec, VCR
 
-## Installation:
+## Get started
 
 To get a local copy up and running follow these simple example steps.
 
-## Get started
 
 ```
 $ cd <folder>
@@ -57,7 +56,7 @@ $ rails db:migrate
 - Children can view their past wishes from previous years in the Wish History section.
 
 
-## Api Integration:
+## Api Integration
 
 The app integrates with OpenAI GPT-4 API to process children's letters and extract present details.
 When a child submits a letter, the OpenAI service extracts the present details like name, color, and size for the Present creation.
