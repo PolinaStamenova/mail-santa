@@ -1,6 +1,6 @@
 %h1 Write your letter to Santa
 
-= form_with model: @child_wish, local: true, data: { turbo: false } do |form|
+= form_with model: @child_wish, local: true, scope: :child_wish, data: { turbo: false } do |form|
   .field
     = form.label :letter
     = form.text_area :letter
