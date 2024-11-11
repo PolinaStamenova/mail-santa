@@ -1,0 +1,51 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/child_wishes":
+    get:
+      summary: Retrieves all child wishes
+      tags:
+      - ChildWishes
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ChildWishes"
+components:
+  schemas:
+    ChildWishes:
+      type: array
+      items:
+        type: object
+        properties:
+          child_id:
+            type: string
+            description: ID of the child associated with the wish
+          present:
+            type: object
+            properties:
+              id:
+                type: string
+                description: ID of the present
+              name:
+                type: string
+                description: Name of the present
+              color:
+                type: string
+                description: Color of the present
+              size:
+                type: string
+                description: Size of the present
+          reference_number:
+            type: string
+            description: Unique reference number for the wish
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
