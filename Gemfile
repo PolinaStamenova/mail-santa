@@ -50,11 +50,19 @@ gem 'haml-rails'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem 'image_processing', '~> 1.2'
 
+# Rswag is a tool to automatically generate API documentation [https://github.com/rswag/rswag]
+gem 'rswag-api'
+gem 'rswag-ui'
+
+# JSON Schema is a vocabulary that allows you to annotate and validate JSON documents [https://json-schema.org/]
+gem 'json-schema'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-remote', '~> 0.1.8'
   gem 'rspec-rails'
+  gem 'rswag-specs'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
 end

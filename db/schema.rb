@@ -10,20 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_21_153248) do
+ActiveRecord::Schema[7.0].define(version: 2024_11_11_101008) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "child_wishes", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "present_id", null: false
+  create_table "child_wishes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["present_id"], name: "index_child_wishes_on_present_id"
-    t.index ["user_id"], name: "index_child_wishes_on_user_id"
+    t.uuid "user_id"
+    t.uuid "present_id"
   end
 
-  create_table "presents", force: :cascade do |t|
+  create_table "presents", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "color"
     t.integer "size"
@@ -31,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_21_153248) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
