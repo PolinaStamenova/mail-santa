@@ -1,4 +1,4 @@
-class Api::V1::APIController < ActionController::API
+class Api::V1::ApiController < ActionController::API
   before_action :authenticate_user!
 
   private
