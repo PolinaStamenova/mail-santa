@@ -59,7 +59,7 @@ $ rails db:migrate
 
 You can view the API documentation for Mail Santa at the following URL:
 
-[API Documentation](http://localhost:3000/api-docs)
+[API Documentation](https://mailsanta-2a6e63705071.herokuapp.com/api-docs/index.html)
 
 To view the API documentation locally, make sure the app is running and navigate to `/api-docs` in your browser.
 
