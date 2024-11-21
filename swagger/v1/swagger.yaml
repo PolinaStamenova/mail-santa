@@ -16,6 +16,49 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ChildWishes"
+  "/api/v1/webhooks":
+    post:
+      summary: Creates a webhook
+      tags:
+      - Webhooks
+      parameters: []
+      responses:
+        '201':
+          description: Webhook successfully created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResponseWebhook"
+        '422':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateWebhook"
+  "/api/v1/webhooks/{id}":
+    delete:
+      summary: Deletes a webhook
+      tags:
+      - Webhooks
+      parameters:
+      - name: id
+        in: path
+        description: ID of the webhook to delete
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Webhook deleted successfully
+        '422':
+          description: Webhook could not be deleted
+        '404':
+          description: No Webhook found with this ID
 components:
   schemas:
     ChildWishes:
@@ -44,8 +87,32 @@ components:
           reference_number:
             type: string
             description: Unique reference number for the wish
+    CreateWebhook:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL to send webhook requests to. It should be a fully qualified
+            URL (e.g., https://example.com/webhook)
+          example: https://myapp.com
+      required:
+      - url
+    ResponseWebhook:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Webhook registered successfully!
+          example: Webhook registered successfully!
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: The error message describing what went wrong
+          example: Invalid request
 servers:
-- url: https://{defaultHost}
+- url: http://localhost:3000
   variables:
     defaultHost:
-      default: www.example.com
+      default: localhost:3000

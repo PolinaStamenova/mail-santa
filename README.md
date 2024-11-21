@@ -50,11 +50,21 @@ $ rails db:migrate
   rspec spec
 ```
 
-### Usage
+## Usage
 
 - Children can navigate to the dashboard and write their letter to Santa for the current year.
 - Children can view their past wishes from previous years in the Wish History section.
 
+## API Documentation
+
+You can view the API documentation for Mail Santa at the following URL:
+
+[API Documentation](http://localhost:3000/api-docs)
+
+To view the API documentation locally, make sure the app is running and navigate to `/api-docs` in your browser.
+
+
+For detailed  **INSTRUCTIONS on API TESTING and HOW to USE the Mail Santa API**, check out the [API Documentation](docs/api.md).
 
 ## Api Integration
 
