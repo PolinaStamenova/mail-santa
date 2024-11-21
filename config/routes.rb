@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :child_wishes, only: %i[index], defaults: { format: :json }
+      resources :webhooks, only: %i[create destroy], defaults: { format: :json }
     end
   end
 

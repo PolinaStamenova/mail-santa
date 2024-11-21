@@ -22,15 +22,18 @@ RSpec.configure do |config|
       paths: {},
       components: {
         schemas: {
-          ChildWishes: YAML.load_file(Rails.root.join('spec', 'support', 'schemas', 'child_wishes.yml'))
+          ChildWishes: YAML.load_file(Rails.root.join('spec', 'support', 'schemas', 'child_wishes.yml')),
+          CreateWebhook: YAML.load_file(Rails.root.join('spec', 'support', 'schemas', 'create_webhook.yml')),
+          ResponseWebhook: YAML.load_file(Rails.root.join('spec', 'support', 'schemas', 'response_webhook.yml')),
+          ErrorResponse: YAML.load_file(Rails.root.join('spec', 'support', 'schemas', 'error_response.yml'))
         }
       },
       servers: [
         {
-          url: 'https://{defaultHost}',
+          url: Rails.env.production? ? 'https://mailsanta-2a6e63705071.herokuapp.com' : 'http://localhost:3000',
           variables: {
             defaultHost: {
-              default: 'www.example.com'
+              default: Rails.env.production? ? 'mailsanta-2a6e63705071.herokuapp.com' : 'localhost:3000'
             }
           }
         }

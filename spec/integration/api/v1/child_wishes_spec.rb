@@ -11,7 +11,6 @@ RSpec.describe 'API::V1::ChildWishes', type: :request do
           user = User.create!(email: 'test@test.com', password: 'password', name: 'Test')
           present = Present.create!(name: 'Test Present', color: 'blue', size: 'small')
           ChildWish.create!(user:, present:)
-          sign_in user
         end
 
         schema '$ref' => '#/components/schemas/ChildWishes'
