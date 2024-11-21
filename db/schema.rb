@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_20_083935) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "webhooks", force: :cascade do |t|
+  create_table "webhooks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
