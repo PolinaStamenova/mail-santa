@@ -30,10 +30,10 @@ RSpec.configure do |config|
       },
       servers: [
         {
-          url: Rails.env.production? ? 'https://mailsanta-2a6e63705071.herokuapp.com' : 'http://localhost:3000',
+          url: 'https://mailsanta-2a6e63705071.herokuapp.com',
           variables: {
             defaultHost: {
-              default: Rails.env.production? ? 'mailsanta-2a6e63705071.herokuapp.com' : 'localhost:3000'
+              default: 'mailsanta-2a6e63705071.herokuapp.com'
             }
           }
         }
