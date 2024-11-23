@@ -112,7 +112,7 @@ components:
           description: The error message describing what went wrong
           example: Invalid request
 servers:
-- url: http://localhost:3000
+- url: https://mailsanta-2a6e63705071.herokuapp.com
   variables:
     defaultHost:
-      default: localhost:3000
+      default: mailsanta-2a6e63705071.herokuapp.com
