@@ -92,6 +92,8 @@ group :test do
   gem 'vcr'
   # WebMock allows stubbing HTTP requests and setting expectations on HTTP requests
   gem 'webmock'
+  # Strategies for cleaning databases in Ruby [https://github.com/DatabaseCleaner/database_cleaner]
+  gem 'database_cleaner-active_record'
 end
 
 gem 'devise', '~> 4.9'

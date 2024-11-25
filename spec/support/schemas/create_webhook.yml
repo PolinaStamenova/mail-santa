@@ -1,8 +1,8 @@
 type: object
 properties:
-  url:
+  app_url:
     type: string
     description: "The URL to send webhook requests to. It should be a fully qualified URL (e.g., https://example.com/webhook)"
     example: "https://myapp.com"
 required:
-  - url
+  - app_url

@@ -12,7 +12,7 @@ RSpec.describe 'Webhooks API', type: :request do
       }
 
       response '201', 'Webhook successfully created' do
-        let(:webhook) { { url: 'https://example.com/webhook' } }
+        let(:webhook) { { app_url: 'https://example.com/webhook' } }
 
         schema '$ref': '#/components/schemas/ResponseWebhook'
 
@@ -23,13 +23,13 @@ RSpec.describe 'Webhooks API', type: :request do
       end
 
       response '422', 'Invalid request' do
-        let(:webhook) { { url: '' } }
+        let(:webhook) { { app_url: '' } }
 
         schema '$ref': '#/components/schemas/ErrorResponse'
 
         run_test!(openapi_strict_schema_validation: true) do |response|
           expect(response.status).to eq(422)
-          expect(response.body).to include('Url is invalid')
+          expect(response.body).to include('App url is invalid')
         end
       end
     end
@@ -43,7 +43,7 @@ RSpec.describe 'Webhooks API', type: :request do
 
       parameter name: :id, in: :path, type: :string, description: 'ID of the webhook to delete'
 
-      let!(:webhook) { Webhook.create!(url: 'https://example.com') }
+      let!(:webhook) { Webhook.create!(app_url: 'https://example.com') }
 
       response '200', 'Webhook deleted successfully' do
         let(:id) { webhook.id }

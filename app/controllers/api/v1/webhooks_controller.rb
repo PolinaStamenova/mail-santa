@@ -1,6 +1,6 @@
 class Api::V1::WebhooksController < Api::V1::ApiController
   def create
-    Webhook.create!(url: params[:url])
+    Webhook.create!(app_url: params[:app_url])
 
     render json: { message: 'Webhook registered successfully!' }, status: :created
   rescue ActiveRecord::RecordInvalid => e
